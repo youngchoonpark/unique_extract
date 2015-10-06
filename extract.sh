@@ -6,6 +6,6 @@
 cut -f $1 -d',' data/antibiotics.csv | sort | uniq > antibiotics_unique.csv
 
 # this is a useless line of code:
-echo "we are all family!"
+echo "some piggies like curmet"
 
 
