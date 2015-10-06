@@ -1,0 +1,25 @@
+# tree
+
+c='...................................'
+
+in1=$1
+nlines=$(echo "scale=0; $in1 /2" | bc)
+# nlines=echo $(printf '%.0f' $(echo " ${nlines}/2.0 " |bc -l ))
+
+printf '%s\n' " " 
+n=0
+for i in $(seq 1 2 $in1 | sort -nr); do
+
+    n=$(echo "${n} +1" | bc -l)
+    nnum=$(echo "(${n}-1)*2+1" | bc -l)
+    ndot=$(echo "$nlines - $n +1 " | bc -l)
+
+    printf ' %s ' ${c:0:ndot} 
+    for j in $(seq 1 $nnum); do
+      printf '%i' $i
+    done
+    printf ' %s \n' ${c:0:ndot}
+done
+
+printf '%s\n ' " "
+
